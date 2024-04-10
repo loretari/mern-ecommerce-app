@@ -106,6 +106,7 @@ const AdminProducts = () => {
             headerAlign: 'left',
             width: 150,
             renderCell: (params) => {
+
                 return (
                     <>
                         <Link to= {"/admin/product/" + params.row._id}>

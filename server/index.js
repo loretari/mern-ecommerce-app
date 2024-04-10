@@ -33,7 +33,7 @@ mongoose
     })
 
 app.use(cors({
-    origin: "https://silver-manatee-eb14b6.netlify.app",
+    origin: "incomparable-mermaid-e0ebfe.netlify.app",
 
     // origin: "http://localhost:3000",
     credentials: true,
