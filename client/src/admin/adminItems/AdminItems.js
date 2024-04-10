@@ -65,7 +65,7 @@ const AdminItems = () =>  {
             width: 200,
             renderCell: (params) => {
                 const imageURL = params.row.image.replace(
-                    "http://localhost:5001",
+                    "https://localhost:5001",
                     "https://mern-ecommerce-app-clqa.onrender.com"
                 )
                 return (
