@@ -29,7 +29,7 @@ const AdminEmployees = () => {
         const getEmployees = async () => {
 
             try {
-                const res = await axios.get(`http://localhost:5001/admin/employee`)
+                const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/admin/employee`)
 
                 if (res.status === 200) {
                     const data = res.data;
@@ -50,7 +50,7 @@ const AdminEmployees = () => {
     const handleDelete = async (id) => {
 
         try {
-           const res = await axios.delete(`http://localhost:5001/admin/employee/${id}`)
+           const res = await axios.delete(`https://mern-ecommerce-app-clqa.onrender.com/admin/employee/${id}`)
             if (res.status === 200) {
                 console.log("Product successfully deleted")
                 dispatch(deleteEmployeeSuccess(id));

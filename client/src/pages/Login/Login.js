@@ -19,7 +19,7 @@ const Login = () => {
         e.preventDefault()
 
         try {
-            const res = await fetch(`http://localhost:5001/auth/login`, {
+            const res = await fetch(`https://mern-ecommerce-app-clqa.onrender.com/auth/login`, {
 
                 headers: {
                     'Content-Type': 'application/json'

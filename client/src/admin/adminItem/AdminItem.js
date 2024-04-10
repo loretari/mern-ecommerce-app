@@ -61,7 +61,7 @@ const AdminItem = () => {
 
                 console.log("FormData: ", formData)
 
-                const uploadResponse = await axios.post("http://localhost:5001/upload/image", formData);
+                const uploadResponse = await axios.post("https://mern-ecommerce-app-clqa.onrender.com/upload/image", formData);
 
                 console.log("Upload response:" , uploadResponse.data);
 
@@ -74,7 +74,7 @@ const AdminItem = () => {
                 console.log("Item data before sending:", itemData);
             }
 
-            const response = await axios.put(`http://localhost:5001/item/${itemId}`, itemData);
+            const response = await axios.put(`https://mern-ecommerce-app-clqa.onrender.com/item/${itemId}`, itemData);
             const updatedItem = response.data;
 
             console.log("Updated item:", updatedItem);

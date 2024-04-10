@@ -21,7 +21,7 @@ const WidgetLg = () => {
     useEffect(() => {
        const getOrders = async () => {
            try {
-               const response = await axios.get(`http://localhost:5001/orders`)
+               const response = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/orders`)
 
                setOrders(response.data);
            } catch (error) {

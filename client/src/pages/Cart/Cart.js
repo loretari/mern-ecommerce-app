@@ -51,7 +51,7 @@ const Cart = () => {
                        userId: user._id,
 
                    }
-                   const res = await axios.post("http://localhost:5001/orders",
+                   const res = await axios.post("https://mern-ecommerce-app-clqa.onrender.com/orders",
                        orderData,
                        {
                        headers: {

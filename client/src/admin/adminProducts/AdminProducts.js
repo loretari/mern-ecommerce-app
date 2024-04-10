@@ -22,7 +22,7 @@ const AdminProducts = () => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const res = await axios.get(`http://localhost:5001/products/`)
+                const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products/`)
                 if (res.status === 200) {
                     const data = res.data;
                     // if (data.length !== 0) {
@@ -45,7 +45,7 @@ const AdminProducts = () => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:5001/products/${id}`)
+            const res = await axios.delete(`https://mern-ecommerce-app-clqa.onrender.com/products/${id}`)
             if (res.status === 200) {
                 console.log("Product successfully deleted")
                 dispatch (deleteProductSuccess(id));

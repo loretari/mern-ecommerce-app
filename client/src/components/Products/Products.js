@@ -18,7 +18,7 @@ const Products = ({cat, sort}) => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const res = await axios.get(`http://localhost:5001/products?category=${category}`)
+                const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products?category=${category}`)
 
 
                 if (res.status === 200) {

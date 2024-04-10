@@ -14,7 +14,7 @@ const WidgetSm = () => {
     useEffect(() => {
          const getUsers = async () => {
              try {
-                 const response = await axios.get(`http://localhost:5001/users/?new=true`)
+                 const response = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/users/?new=true`)
                  setUsers(response.data);
 
              } catch (error) {

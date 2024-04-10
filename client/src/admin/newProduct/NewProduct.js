@@ -53,7 +53,7 @@ const NewProduct = () => {
             formData.append("inStock", inStock);
 
             const uploadResponse = await axios.post(
-                "http://localhost:5001/upload/image",
+                "https://mern-ecommerce-app-clqa.onrender.com/upload/image",
                 formData
             );
 
@@ -71,7 +71,7 @@ const NewProduct = () => {
             };
 
             const response = await axios.post(
-                "http://localhost:5001/products",
+                "https://mern-ecommerce-app-clqa.onrender.com/products",
                 productData
             );
 
@@ -88,7 +88,7 @@ const NewProduct = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:5001/products");
+                const response = await axios.get("https://mern-ecommerce-app-clqa.onrender.com/products");
                 const products = response.data;
                 products.forEach((product) => dispatch(addProductSuccess(product)));
             } catch (error) {
