@@ -64,9 +64,13 @@ const AdminItems = () =>  {
             headerAlign: 'left',
             width: 200,
             renderCell: (params) => {
+                const imageURL = params.row.image.replace(
+                    "http://localhost:5001",
+                    "https://mern-ecommerce-app-clqa.onrender.com"
+                )
                 return (
                     <div className="productListItem">
-                        <img className="productListImg" src={params.row.image} alt="" />
+                        <img className="productListImg" src={imageURL} alt="" />
                         {params.row.title}
                     </div>
                 );
