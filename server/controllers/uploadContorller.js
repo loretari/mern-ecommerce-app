@@ -53,7 +53,8 @@ uploadController.post('/image', upload.single('image'), (req, res) => {
     if (!req.file) {
         return res.status(400).json({error: "No file uploaded"})
     }
-    const imageUrl = `http://localhost:${process.env.PORT}/images/${req.file.filename}`;
+    const imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+    // const imageUrl = `http://localhost:${process.env.PORT}/images/${req.file.filename}`;
     return res.json({ success: 1, image_url: imageUrl });
     // res.json({
     //     success: 1,
@@ -104,7 +105,8 @@ uploadController.post('/avatar',  avatarUpload.single('avatar'), async (req, res
     //       avatar_url: updatedUser.avatar
     //   })
 
-    const avatarUrl = `http://localhost:${process.env.PORT}/avatars/${req.file.filename}`;
+    const avatarUrl = `${req.protocol}://${req.get('host')}/avatars/${req.file.filename}`;
+    // const avatarUrl = `http://localhost:${process.env.PORT}/avatars/${req.file.filename}`;
     return res.json({ success: 1, avatar_url: avatarUrl });
 
         // res.json({
