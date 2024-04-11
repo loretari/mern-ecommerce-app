@@ -11,7 +11,6 @@ const AdminLogin = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
 
-    const { token } = useSelector((state) => state.user);
 
 
     const dispatch = useDispatch();

@@ -207,7 +207,7 @@ const AdminItem = () => {
                                        onChange={handleImageChange}
 
                                 />
-                                <img id= "image" src={previewImage} alt= "Selected Image Preview" />
+                                <img id= "image" src={previewImage} alt= "Preview" />
                             </div>
 
                             <div className="userUpdateUpload">

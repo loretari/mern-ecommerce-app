@@ -69,7 +69,7 @@ const Cart = () => {
 
 paymentRequest();
 
-   }, [stripeToken, cart.total, dispatch, user.token, user._id]);
+   }, [stripeToken, cart.total, dispatch, user.token, user._id, cart.products]);
 
 console.log(stripeToken)
 

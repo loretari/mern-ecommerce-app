@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./newProduct.css";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addProductSuccess} from "../../redux/productSlice";
 
 
@@ -17,7 +17,6 @@ const NewProduct = () => {
     const [inStock, setInStock] = useState(true);
     const navigate = useNavigate();
 
-    const { token } = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
     const handleBack = () => {
@@ -117,7 +116,7 @@ const NewProduct = () => {
                                onChange={handleImageChange}
 
                         />
-                        <img id= "userAvatar" src={previewImage} alt= "Selected Image Preview" />
+                        <img id= "userAvatar" src={previewImage} alt= "Preview" />
 
                     </div>
                     <div className= "addProductItem">

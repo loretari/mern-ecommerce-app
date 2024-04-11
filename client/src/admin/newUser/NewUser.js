@@ -95,7 +95,7 @@ const NewUser = () => {
                                onChange={handleAvatarChange}
 
                         />
-                        <img id= "productImage" src={previewImage} alt= "Selected Image Preview" />
+                        <img id= "productImage" src={previewImage} alt= "Preview" />
 
                     </div>
 

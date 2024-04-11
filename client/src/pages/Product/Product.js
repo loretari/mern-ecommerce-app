@@ -37,7 +37,7 @@ const Product = () => {
 
    getProduct()
         console.log("Product get", id)
-    }, [id]);
+    }, [dispatch, id]);
 
 
     const handleQty = (type) => {
