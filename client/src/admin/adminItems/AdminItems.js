@@ -64,14 +64,14 @@ const AdminItems = () =>  {
             headerAlign: 'left',
             width: 200,
             renderCell: (params) => {
-                const imageURL = params.row.image.replace(
-                    "https://localhost:5001",
-                    "https://resilient-belekoy-86f0ce.netlify.app"
-                )
+                // const imageURL = params.row.image.replace(
+                //     "https://localhost:5001",
+                //     "https://resilient-belekoy-86f0ce.netlify.app"
+                // )
                 return (
                     <div className="productListItem">
-                        {/*<img className="productListImg" src={params.row.image} alt="" />*/}
-                        <img className="productListImg" src={imageURL} alt="" />
+                        <img className="productListImg" src={params.row.image} alt="" />
+                        {/*<img className="productListImg" src={imageURL} alt="" />*/}
                         {params.row.title}
                     </div>
                 );
