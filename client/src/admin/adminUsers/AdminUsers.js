@@ -13,10 +13,6 @@ const users = useSelector((state) => state.client.clients);
 
 const dispatch = useDispatch();
 
-    const handleBack = () => {
-        window.location.assign(`/admin/home`);
-    }
-
 useEffect(() => {
     const getUsers = async () => {
         try {
@@ -115,10 +111,7 @@ useEffect(() => {
 return (
     <div className= "user">
         <Link to="/admin/home">
-            <button className= "userAddButton"
-                    onClick={ handleBack }
-            >
-                Back</button>
+                Back
         </Link>
         <div style={{ height: 600, width: 1100, marginTop:30, display:"flex",justifyContent:"center"}}>
             <Link to="/newUser">
