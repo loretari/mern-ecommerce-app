@@ -91,7 +91,7 @@ const Navbar = () => {
                             <Link className= "navbar-item"
 
                                   onClick = {() => window.scrollTo(0, 0)}
-                                  to= "/profile">
+                                  to= "/cart">
 
 
                                 <img
