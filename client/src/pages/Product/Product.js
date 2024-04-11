@@ -49,6 +49,7 @@ const Product = () => {
     }
 
     const handleCart = () => {
+        console.log(product)
         dispatch(addProduct({...product, quantity}))
     }
 
