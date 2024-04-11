@@ -65,8 +65,8 @@ const AdminItems = () =>  {
             width: 200,
             renderCell: (params) => {
                 const imageURL = params.row.image.replace(
-                    "http://localhost:5001",
-                    "https://mern-ecommerce-app-clqa.onrender.com"
+                    "https://localhost:5001",
+                    "https://resilient-belekoy-86f0ce.netlify.app"
                 )
                 return (
                     <div className="productListItem">
