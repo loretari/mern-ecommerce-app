@@ -22,7 +22,18 @@ const Navbar = () => {
     const [searchItem, setSearchItem] = useState('');
     const location = useLocation();
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrolled = window.scrollY > 0;
+            setIsScrolled(scrolled);
+        };
 
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -53,7 +64,7 @@ const Navbar = () => {
 
 
     return(
-        <div className= {`${"navbar-container"} ${isScrolled && "scrolled"}`}>
+        <div className= {`${"navbar-container"} ${isScrolled ? "scrolled" : ""}`}>
                 <div className= "navbar-center">
                     <Link className= "navbar-title"
                           onClick={() => window.scrollTo(0, 0)}

@@ -55,7 +55,10 @@ const Products = ({cat, sort}) => {
         } else if (sort === "desc") {
             return b.price - a.price;
         } else if (sort === "newest"){
-           return new Date(b.createdAt) - new Date(a.createdAt)};
+           return new Date(b.createdAt) - new Date(a.createdAt)
+        } else {
+            return  0
+        }
     }
     )
     console.log( sortedProducts);

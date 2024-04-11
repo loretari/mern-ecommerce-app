@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./adminLogin.css";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {adminLoginSuccess} from "../../../redux/userSlice";
 import {useNavigate} from "react-router";
 
@@ -10,6 +10,7 @@ const AdminLogin = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
 
 
@@ -41,8 +42,11 @@ const AdminLogin = () => {
                 throw new Error("Authentication failed")
             }
         } catch (error) {
+            setError(true);
+            setErrorMessage(error.message);
             setTimeout(() => {
-                setError(true)
+                setError(false);
+                setErrorMessage("");
             }, 3000)
         }
 
