@@ -33,7 +33,7 @@ mongoose
     })
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://incomparable-mermaid-e0ebfe.netlify.app'); // Pakeiskite į savo kliento aplikacijos URL
+    res.setHeader('Access-Control-Allow-Origin', 'remarkable-pika-e3c378.netlify.app'); // Pakeiskite į savo kliento aplikacijos URL
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 
 
 app.use(cors({
-    origin: "incomparable-mermaid-e0ebfe.netlify.app",
+    origin: "remarkable-pika-e3c378.netlify.app",
 
     // origin: "http://localhost:3000",
     credentials: true,
