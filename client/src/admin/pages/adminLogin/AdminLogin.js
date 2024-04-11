@@ -74,7 +74,7 @@ const AdminLogin = () => {
                         onClick= {handleLogin}
                 >Login</button>
                 {error ?  <div className= "login-error">
-                   Yo are not admin
+                    <p>Yo are not admin</p>
                 </div> : null}
 
             </div>
