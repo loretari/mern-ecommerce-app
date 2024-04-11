@@ -47,7 +47,7 @@ const Footer = () => {
                         <li className= "footer-listItem">Admin Portal</li>
                     </Link>
                     <Link className= "footer-item"
-                          to= "/cart"
+                          to= "/register"
                     >
                         <li className= "footer-listItem">Cart</li>
                     </Link>
@@ -56,12 +56,12 @@ const Footer = () => {
                     <li className= "footer-item">Wishlist</li>
                     <li className= "footer-item">Terms</li>
                     <Link className= "hospo"
-                          to= "/hospo"
+                          to= "/admin"
                     >
                         <div className= "footer-listItem">Hospo Deals</div>
                     </Link>
                     <Link className= "hospo"
-                          to= "/functions"
+                          to= "/admin"
                     >
                         <div className= "footer-listItem">Functions</div>
                     </Link>
