@@ -10,7 +10,7 @@ const AdminLogin = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
+
 
 
 
@@ -43,10 +43,8 @@ const AdminLogin = () => {
             }
         } catch (error) {
             setError(true);
-            setErrorMessage(error.message);
             setTimeout(() => {
-                setError(false);
-                setErrorMessage("");
+                setError(false)
             }, 3000)
         }
 
@@ -75,6 +73,10 @@ const AdminLogin = () => {
                 <button className= "adminLogin-button"
                         onClick= {handleLogin}
                 >Login</button>
+                {error ?  <div className= "login-error">
+                   Yo are not admin
+                </div> : null}
+
             </div>
         </div>
     )
