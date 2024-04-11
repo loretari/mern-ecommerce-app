@@ -33,7 +33,7 @@ mongoose
     })
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://resilient-belekoy-86f0ce.netlify.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://admirable-tarsier-74a70f.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 
 
 app.use(cors({
-    origin: 'https://resilient-belekoy-86f0ce.netlify.app',
+    origin: 'https://admirable-tarsier-74a70f.netlify.app',
     credentials: true,
     optionsSuccessStatus: 200,
 }))
