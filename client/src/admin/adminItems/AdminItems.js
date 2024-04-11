@@ -66,7 +66,7 @@ const AdminItems = () =>  {
             renderCell: (params) => {
                 // const imageURL = params.row.image.replace(
                 //     "https://localhost:5001",
-                //     "https://resilient-belekoy-86f0ce.netlify.app"
+                //     "https://admirable-tarsier-74a70f.netlify.app"
                 // )
                 return (
                     <div className="productListItem">
