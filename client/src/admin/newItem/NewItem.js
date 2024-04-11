@@ -17,9 +17,6 @@ const NewItem = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleBack = () => {
-    window.location.assign("/admin/home")
-  }
 
   const handleImageChange = (e) => {
     const file = e.target.files[0]
@@ -77,10 +74,8 @@ const NewItem = () => {
 
   return (
     <div className='user'>
-      <Link to='/admin/home'>
-        <button onClick={handleBack} className='userAddButton'>
-          Back
-        </button>
+      <Link to="/admin/home" className="userAddButton">
+        Back
       </Link>
       <div className='newProduct'>
         <h1>New Product</h1>

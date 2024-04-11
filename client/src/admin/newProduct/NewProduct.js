@@ -19,9 +19,7 @@ const NewProduct = () => {
 
     const dispatch = useDispatch();
 
-    const handleBack = () => {
-        window.location.assign('/admin/home');
-    }
+
 
 
     const handleImageChange = (e) => {
@@ -100,8 +98,8 @@ const NewProduct = () => {
     return (
         <div className="user">
 
-            <Link to= "/admin/home">
-                <button onClick={ handleBack } className= "userAddButton">Back</button>
+            <Link to="/admin/home" className="userAddButton">
+                Back
             </Link>
             <div className= "newProduct">
                 <h1>New Product</h1>

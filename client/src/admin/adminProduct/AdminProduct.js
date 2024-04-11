@@ -25,9 +25,7 @@ const AdminProduct = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleBack = () => {
-        window.location.assign('/admin/home');
-    }
+
 
 
 
@@ -74,8 +72,8 @@ const AdminProduct = () => {
         <div className="user">
             <div className="userTitleContainer">
 
-                <Link to= "/">
-                    <button onClick={ handleBack } className= "userAddButton">Back</button>
+                <Link to="/" className="userAddButton">
+                    Back
                 </Link>
                 <h1 className="userTitle">Edit Product</h1>
                 <Link to="/newProduct">

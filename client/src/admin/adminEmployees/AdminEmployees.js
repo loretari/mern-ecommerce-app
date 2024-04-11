@@ -21,10 +21,6 @@ const AdminEmployees = () => {
     const dispatch = useDispatch();
 
 
-    const handleBack = () => {
-        window.location.assign(`/admin/home`);
-    }
-
     useEffect(() => {
         const getEmployees = async () => {
 
@@ -133,11 +129,8 @@ const AdminEmployees = () => {
 
     return (
            <div className= "user">
-               <Link to="/admin/home">
-                   <button className= "userAddButton"
-                           onClick={ handleBack }
-                   >
-                       Back</button>
+               <Link to="/admin/home" className="userAddButton">
+                   Back
                </Link>
 
         <div className= "createNewEmployee">

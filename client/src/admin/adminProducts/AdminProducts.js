@@ -14,9 +14,7 @@ const AdminProducts = () => {
 
      const dispatch = useDispatch();
 
-    const handleBack = () => {
-        window.location.assign(`/admin/home`);
-    }
+
 
     //get products, if there is a category retrieves only few of them otherwise all of them
     useEffect(() => {
@@ -127,11 +125,8 @@ const AdminProducts = () => {
 
     return (
         <div className= "user">
-            <Link to="/admin/home">
-                <button className= "userAddButton"
-                        onClick={ handleBack }
-                >
-                    Back</button>
+            <Link to="/admin/home" className="userAddButton">
+                Back
             </Link>
         <div className= "creatNewProduct">
             <Link to= "/newProduct">

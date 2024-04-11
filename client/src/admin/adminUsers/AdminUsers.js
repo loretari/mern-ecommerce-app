@@ -110,8 +110,8 @@ useEffect(() => {
 
 return (
     <div className= "user">
-        <Link to="/admin/home">
-                Back
+        <Link to="/admin/home" className="userAddButton">
+            Back
         </Link>
         <div style={{ height: 600, width: 1100, marginTop:30, display:"flex",justifyContent:"center"}}>
             <Link to="/newUser">

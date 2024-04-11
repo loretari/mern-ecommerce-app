@@ -18,9 +18,7 @@ const NewUser = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleBack = () => {
-        window.location.assign('/admin/home');
-    }
+
 
     const handleAvatarChange = (e) => {
         const file = e.target.files[0];
@@ -76,8 +74,8 @@ const NewUser = () => {
     return (
         <div className="user">
 
-            <Link to= "/admin/home">
-                <button onClick={ handleBack } className= "userAddButton">Back</button>
+            <Link to="/admin/home" className="userAddButton">
+                Back
             </Link>
             <div className="newUser">
                 <h1 className="newUserTitle">New User</h1>

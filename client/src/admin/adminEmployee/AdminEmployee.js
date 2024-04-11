@@ -23,9 +23,6 @@ const AdminEmployee = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    const handleBack = () => {
-        window.location.assign("/admin/home");
-    }
 
 
 
@@ -61,8 +58,8 @@ const handleSubmit = async (e) => {
     return (
         <div className="user">
             <div className="userTitleContainer">
-                <Link to="/">
-                    <button className="userAddButton" onClick={handleBack}>Back </button>
+                <Link to="/" className="userAddButton">
+                    Back
                 </Link>
                 <h1 className="userTitle">Edit Employee</h1>
                 <Link to="/newEmployee">

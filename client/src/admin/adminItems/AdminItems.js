@@ -14,9 +14,7 @@ const AdminItems = () =>  {
     const dispatch = useDispatch();
     console.log(items)
 
-    const handleBack = () => {
-        window.location.assign(`/admin/home`);
-    }
+
 
 
     useEffect(() => {
@@ -64,10 +62,7 @@ const AdminItems = () =>  {
             headerAlign: 'left',
             width: 200,
             renderCell: (params) => {
-                // const imageURL = params.row.image.replace(
-                //     "https://localhost:5001",
-                //     "https://admirable-tarsier-74a70f.netlify.app"
-                // )
+
                 return (
                     <div className="productListItem">
                         <img className="productListImg" src={params.row.image} alt="" />
@@ -115,11 +110,8 @@ const AdminItems = () =>  {
 
     return (
         <div className= "user">
-            <Link to="/admin/home">
-                <button className= "userAddButton"
-                        onClick={ handleBack }
-                >
-                    Back</button>
+            <Link to="/admin/home" className="userAddButton">
+                Back
             </Link>
 
             <div className= "adminItem">

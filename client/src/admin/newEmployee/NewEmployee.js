@@ -17,9 +17,7 @@ const NewEmployee = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleBack = () => {
-        window.location.assign(`/admin/home`);
-    }
+
 
     const handleClick =  async (e) => {
         e.preventDefault();
@@ -50,11 +48,8 @@ const NewEmployee = () => {
 
     return (
         <div className="user">
-            <Link to="/admin/home">
-                <button className= "userAddButton"
-                    onClick={ handleBack }
-                   >
-                    Back</button>
+            <Link to="/admin/home" className="userAddButton">
+                Back
             </Link>
             <div className="newUser">
                 <h1 className="newUserTitle">New Employee</h1>
