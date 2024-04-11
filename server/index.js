@@ -33,7 +33,7 @@ mongoose
     })
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://remarkable-pika-e3c378.netlify.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://teal-platypus-dd09dd.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 
 
 app.use(cors({
-    origin: 'https://remarkable-pika-e3c378.netlify.app',
+    origin: 'https://teal-platypus-dd09dd.netlify.app',
     credentials: true,
     optionsSuccessStatus: 200,
 }))
