@@ -46,7 +46,12 @@ const Slider = () => {
                                   onClick = {() => window.scrollTo(0, 0)}
                                   to={`/products/${item.cat}`} style = {{textDecoration: 'none'}}
                             >
+                                <img className= "category-images" src={item.img} alt= "categoryImg"/>
+                                <h1 className= "category-tittle">{item.title}</h1>
                                 <button className= "slider-button">SHOP NOW</button>
+                            </Link>
+                            <Link to={`/products/:category`} className= "slider-button">
+                                SHOP NOW
                             </Link>
                             {/*<button className= "slider-button">SHOP NOW</button>*/}
                         </div>
