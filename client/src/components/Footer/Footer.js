@@ -1,8 +1,12 @@
 import React from "react";
 import './footer.css';
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const Footer = () => {
+
+    const { currentUser } = useSelector((state) => state.user);
+
     return (
         <div className= "footer-container">
             <div className= "footer-grid">
@@ -46,11 +50,23 @@ const Footer = () => {
                     >
                         <li className= "footer-listItem">Admin Portal</li>
                     </Link>
+                    {currentUser ? (
+                        <Link className= "footer-item"
+                              onClick = {() => window.scrollTo(0, 0)}
+                                to= "/cart">
+                            </Link>
+                    ) : (
+                            <Link className= "footer-item"
+                                  onClick = {() => window.scrollTo(0, 0)}
+                                  to= '/register'>REGISTER</Link>
+                    )}
+
                     <Link className= "footer-item"
                           to= "/register"
                     >
                         <li className= "footer-listItem">Cart</li>
                     </Link>
+
                     <Link className= "footer-item"
                           to= "/"
                     >
