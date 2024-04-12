@@ -2,18 +2,19 @@ import React, {useState} from "react";
 import "./product.css";
 import { Link } from "react-router-dom";
 import {addProduct} from "../../redux/cartSlice";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const Product = ({ item }) => {
 
     const product = useSelector((state) => state.product.products);
     const [quantity, setQuantity] = useState(1);
 
+    const dispatch = useDispatch();
+
     const handleCart = () => {
         console.log(product)
         dispatch(addProduct({...product, quantity}))
     }
-
 
     return (
         <div className= "product-container">
