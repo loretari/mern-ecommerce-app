@@ -207,17 +207,10 @@
 
 }
 
-@media screen and (max-width: 670px) {
-    .cart-product {
-        display: block;
-    }
-    .cart-bottom {
-        display: block;
-    }
-}
 
 
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 660px) {
     .cart-productDetail {
         display: block;
         justify-content: center;
