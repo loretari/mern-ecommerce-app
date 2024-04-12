@@ -7,7 +7,8 @@ import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: "mern-e-commerce-c931d.firebaseapp.com",
+    authDomain: "https://curious-chebakia-040e2f.netlify.app/",
+    // authDomain: "mern-e-commerce-c931d.firebaseapp.com",
     projectId: "mern-e-commerce-c931d",
     storageBucket: "mern-e-commerce-c931d.appspot.com",
     messagingSenderId: "614136624193",
