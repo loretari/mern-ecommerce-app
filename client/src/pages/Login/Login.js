@@ -58,7 +58,7 @@ const Login = () => {
             <div className= "login-wrapper">
                 <h1 className= "login-tittle">LOG IN</h1>
                 <form onSubmit= {handleLogin} className= "login-form">
-                    <input  type= "text" className= "login-input" placeholder="Username"
+                    <input  type= "username" className= "login-input" placeholder="Username"
                             onChange={(e) => setUsername(e.target.value)}
                     />
                     <input  type= "email" className= "login-input" placeholder="Email"
