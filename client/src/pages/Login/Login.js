@@ -32,10 +32,18 @@ const Login = () => {
                 console.log("user", data)
                 dispatch(loginSuccess (data));
                 navigate("/")
+            } else {
+                const errorData = await res.json();
+                if (errorData && errorData.error === "Wrong password") {
+                    setError(true);
+                } else {
+                    setError(false;)
+                }
             }
 
         } catch (error) {
             setError(true);
+            console.log("Login failed:", error);
             setTimeout(() => {
                 setError(false)
             }, 3000)
@@ -50,7 +58,7 @@ const Login = () => {
             <div className= "login-wrapper">
                 <h1 className= "login-tittle">LOG IN</h1>
                 <form onSubmit= {handleLogin} className= "login-form">
-                    <input  type= "username" className= "login-input" placeholder="Username"
+                    <input  type= "text" className= "login-input" placeholder="Username"
                             onChange={(e) => setUsername(e.target.value)}
                     />
                     <input  type= "email" className= "login-input" placeholder="Email"
@@ -62,9 +70,11 @@ const Login = () => {
                     />
                     <button className= "login-button" >LOGIN</button>
                     <OAuth/>
-                    {error ?  <div className= "login-error">
-                        Wrong username or password!
-                    </div> : null}
+                    {error &&  (
+                        <div className= "login-error">
+                            Wrong username or password! Please try again.
+                        </div>
+                    )}
                     <p>Don't have an account?
                         <Link className= "login-link"
                               to= "/register"
