@@ -153,15 +153,6 @@
     width: 120px;
 }
 
-.hospo {
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-    margin: 20px;
-    border: 2px solid black;
-    border-radius: 50px;
-    width: 120px;
-}
 
 @media screen and (max-width: 1260px) {
     .footer-grid {

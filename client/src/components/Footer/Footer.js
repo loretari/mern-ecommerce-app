@@ -51,17 +51,33 @@ const Footer = () => {
                     >
                         <li className= "footer-listItem">Cart</li>
                     </Link>
-                    <li className= "footer-listItem">My Account</li>
-                    <li className= "footer-listItem">Order Tracking</li>
-                    <li className= "footer-listItem">Wishlist</li>
-                    <li className= "footer-listItem">Terms</li>
-                    <Link className= "hospo"
-                          to= "/admin"
+                    <Link className= "footer-item"
+                          to= "/"
+                    >
+                        <li className= "footer-listItem">My Account</li>
+                    </Link>
+                    <Link className= "footer-item"
+                          to= "/"
+                    >
+                        <li className= "footer-listItem">Order Tracking</li>
+                    </Link>
+                    <Link className= "footer-item"
+                          to= "/"
+                    >
+                        <li className= "footer-listItem">Wish List</li>
+                    </Link>
+                    <Link className= "footer-item"
+                          to= "/"
+                    >
+                        <li className= "footer-listItem">Terms</li>
+                    </Link>
+                    <Link className= "footer-item"
+                          to= "/"
                     >
                         <div className= "footer-listItem">Hospo Deals</div>
                     </Link>
-                    <Link className= "hospo"
-                          to= "/admin"
+                    <Link className= "footer-item"
+                          to= "/"
                     >
                         <div className= "footer-listItem">Functions</div>
                     </Link>
