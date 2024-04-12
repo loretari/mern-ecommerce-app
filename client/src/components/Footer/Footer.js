@@ -51,7 +51,7 @@ const Footer = () => {
                     </Link>
 
                     <Link className= "footer-item"
-                          to= "/register"
+                          to= "/cart"
                     >
                         <li className= "footer-listItem">Cart</li>
 
