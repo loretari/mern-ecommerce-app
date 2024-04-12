@@ -86,7 +86,7 @@ const Navbar = () => {
 
                 </form>
                 <div >
-                    {currentUser ? (
+
                         <div className= "navbar-right">
                             <Link className= "navbar-item"
 
@@ -126,18 +126,9 @@ const Navbar = () => {
                                     onClick={handleLogout}
                             >LOGOUT</button>
                         </div>
-                    ) : (
-                        <div className= "navbar-right">
-                            <Link className= "navbar-item"
-                                  onClick = {() => window.scrollTo(0, 0)}
-                                  to= '/register'>REGISTER</Link>
 
-                            <Link className= "navbar-item"
-                                  onClick = {() => window.scrollTo(0, 0)}
-                                  to= '/login'>LOGIN</Link>
+                    
 
-                        </div>
-                    )}
 
 
                 </div>
