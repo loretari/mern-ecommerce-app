@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "./product.css";
 import { Link } from "react-router-dom";
 import {addProduct} from "../../redux/cartSlice";
