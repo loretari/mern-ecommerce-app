@@ -1,7 +1,7 @@
 import React from "react";
 import './footer.css';
 import {Link, useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {logout} from "../../redux/userSlice";
 
 const Footer = () => {
@@ -9,6 +9,7 @@ const Footer = () => {
     const { currentUser } = useSelector((state) => state.user);
     const  cartQuantity  = useSelector((state) => state.cart.quantity);
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleLogout = (e) => {
