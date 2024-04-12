@@ -187,6 +187,15 @@
     margin-bottom: 80px;
 }
 
+@media screen and (max-width: 1240px) {
+    .cart-bottom {
+        display: block;
+    }
+    .cart-product {
+        display: block;
+    }
+
+}
 
 @media screen and (max-width: 870px) {
     .cart-bottom {
@@ -200,6 +209,9 @@
 
 @media screen and (max-width: 670px) {
     .cart-product {
+        display: block;
+    }
+    .cart-bottom {
         display: block;
     }
 }
