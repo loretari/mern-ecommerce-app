@@ -37,7 +37,7 @@ const Login = () => {
                 if (errorData && errorData.error === "Wrong password") {
                     setError(true);
                 } else {
-                    setError(false;)
+                    setError(false)
                 }
             }
 
