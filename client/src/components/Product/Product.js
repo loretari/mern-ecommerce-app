@@ -7,13 +7,13 @@ import {useDispatch, useSelector} from "react-redux";
 const Product = ({ item }) => {
 
     const product = useSelector((state) => state.product.products);
-    const [quantity, setQuantity] = useState(1);
+
 
     const dispatch = useDispatch();
 
     const handleCart = () => {
         console.log(product)
-        dispatch(addProduct({...product, quantity}))
+        dispatch(addProduct({...product, quantity: 1}))
     }
 
     return (
@@ -23,8 +23,7 @@ const Product = ({ item }) => {
             <div className= "product-info">
                 <div className= "product-icon">
                     <button
-                        onClick={handleCart}
-                        className= "product-button">
+                        onClick={handleCart}>
                         ADD TO CART
                         <svg className="product-cartIcon"
                          focusable="false" aria-hidden="true" viewBox="0 0 24 24"
