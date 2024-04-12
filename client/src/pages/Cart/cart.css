@@ -220,4 +220,7 @@
         margin: auto;
         justify-content: center;
     }
+    .cart-details {
+      font-size: 15px;
+    }
 }

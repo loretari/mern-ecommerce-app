@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 
 
+
 const Slider = () => {
 
     const [slideIndex, setSlideIndex] = useState(0);
@@ -42,18 +43,11 @@ const Slider = () => {
                         <div className= "slider-infoContainer">
                             <h1 className= "slider-title">{item.title}</h1>
                             <p className= "slider-description">{item.desc}</p>
-                            {/*<Link className= "category-info"*/}
-                            {/*      onClick = {() => window.scrollTo(0, 0)}*/}
-                            {/*      to={`/products/${item.cat}`} style = {{textDecoration: 'none'}}*/}
-                            {/*>*/}
-                            {/*    <img className= "category-images" src={item.img} alt= "categoryImg"/>*/}
-                            {/*    <h1 className= "category-tittle">{item.title}</h1>*/}
-                            {/*    <button className= "slider-button">SHOP NOW</button>*/}
-                            {/*</Link>*/}
-                            <Link to={`/products/:category`} className= "slider-button">
-                                SHOP NOW
+
+                            <Link to={`/products/Clothing`}>
+                                <button className= "slider-button">SHOP NOW</button>
                             </Link>
-                            {/*<button className= "slider-button">SHOP NOW</button>*/}
+
                         </div>
                     </div>
                 ))}

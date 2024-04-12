@@ -51,10 +51,10 @@ const Footer = () => {
                     >
                         <li className= "footer-listItem">Cart</li>
                     </Link>
-                    <li className= "footer-item">My Account</li>
-                    <li className= "footer-item">Order Tracking</li>
-                    <li className= "footer-item">Wishlist</li>
-                    <li className= "footer-item">Terms</li>
+                    <li className= "footer-listItem">My Account</li>
+                    <li className= "footer-listItem">Order Tracking</li>
+                    <li className= "footer-listItem">Wishlist</li>
+                    <li className= "footer-listItem">Terms</li>
                     <Link className= "hospo"
                           to= "/admin"
                     >
