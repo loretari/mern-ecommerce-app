@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./slider.css";
 import { sliderItems } from "../../dummydata";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 
 const Slider = () => {
@@ -41,8 +42,13 @@ const Slider = () => {
                         <div className= "slider-infoContainer">
                             <h1 className= "slider-title">{item.title}</h1>
                             <p className= "slider-description">{item.desc}</p>
-
-                            <button className= "slider-button">SHOP NOW</button>
+                            <Link className= "category-info"
+                                  onClick = {() => window.scrollTo(0, 0)}
+                                  to={`/products/${item.cat}`} style = {{textDecoration: 'none'}}
+                            >
+                                <button className= "slider-button">SHOP NOW</button>
+                            </Link>
+                            {/*<button className= "slider-button">SHOP NOW</button>*/}
                         </div>
                     </div>
                 ))}
