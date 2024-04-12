@@ -1,22 +1,10 @@
 import React from "react";
 import './footer.css';
-import {Link, useNavigate} from "react-router-dom";
-import {useSelector, useDispatch} from "react-redux";
-import {logout} from "../../redux/userSlice";
+import {Link} from "react-router-dom";
+
 
 const Footer = () => {
 
-    const { currentUser } = useSelector((state) => state.user);
-    const  cartQuantity  = useSelector((state) => state.cart.quantity);
-
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const handleLogout = (e) => {
-        e.preventDefault()
-        dispatch(logout());
-        navigate("/")
-    }
 
     return (
         <div className= "footer-container">
