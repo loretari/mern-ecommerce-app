@@ -91,7 +91,7 @@ const Navbar = () => {
                             <Link className= "navbar-item"
 
                                   onClick = {() => window.scrollTo(0, 0)}
-                                  to= "/cart">
+                                  to= "/register">
 
 
                                 <img
@@ -127,7 +127,7 @@ const Navbar = () => {
                             >LOGOUT</button>
                         </div>
 
-                    
+
 
 
 
