@@ -2,17 +2,17 @@ import React from "react";
 import "./product.css";
 import { Link } from "react-router-dom";
 import {addProduct} from "../../redux/cartSlice";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 const Product = ({ item }) => {
 
-    const product = useSelector((state) => state.product.products);
+
 
 
     const dispatch = useDispatch();
 
     const handleCart = () => {
-        console.log(product)
+        console.log(item)
         // dispatch(addProduct({...product, quantity: 1}))
         dispatch(addProduct(item, {quantity: 1}));
 
