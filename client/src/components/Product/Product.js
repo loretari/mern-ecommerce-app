@@ -1,22 +1,46 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./product.css";
-import { Link } from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {addProduct} from "../../redux/cartSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import axios from "axios";
+import {getProductSuccess} from "../../redux/productSlice";
 
 const Product = ({ item }) => {
 
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
 
-
-
+    const product = useSelector((state) => state.product.products);
+    const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
 
-    const handleCart = () => {
-        console.log(item)
-        // dispatch(addProduct({...product, quantity: 1}))
-        dispatch(addProduct(item, {quantity: 1}));
 
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products/find/`+ id)
+                console.log("Response:", res);
+                console.log("Response data:", res.data);
+
+                // setProduct(res.data);
+                dispatch (getProductSuccess(res.data));
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        getProduct()
+        console.log("Product get", id)
+    }, [dispatch, id]);
+
+
+
+    const handleCart = () => {
+        console.log(product)
+        dispatch(addProduct({...product, quantity}))
     }
+
 
     return (
         <div className= "product-container">
