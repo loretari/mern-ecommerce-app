@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import "./product.css";
 import {Link, useLocation} from "react-router-dom";
 import {addProduct} from "../../redux/cartSlice";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import axios from "axios";
 import {getProductSuccess} from "../../redux/productSlice";
 
@@ -11,7 +11,7 @@ const Product = ({ item }) => {
     const location = useLocation();
     const id = location.pathname.split("/")[2];
 
-    const product = useSelector((state) => state.product.products);
+
     const dispatch = useDispatch();
 
 
@@ -36,8 +36,8 @@ const Product = ({ item }) => {
 
 
     const handleCart = () => {
-        console.log(product)
-        dispatch(addProduct({product, quantity: 1}))
+        console.log(item)
+        dispatch(addProduct(item,{quantity: 1}))
     }
 
 
