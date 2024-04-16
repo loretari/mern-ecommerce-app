@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import "./navbar.css";
-import {Link, useNavigate, useLocation} from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import {logout} from "../../redux/userSlice";
 import { FaSearch } from "react-icons/fa";
@@ -113,7 +113,7 @@ const Navbar = () => {
                             {searchItem.map(product => (
                                 <div key={product._id}>
                                     <div>
-                                        <img src={product.image} />
+                                        <img src={product.image} alt = "COMING SOON" />
                                     </div>
                                     <div>
                                         <p>{product.description}</p>
