@@ -20,7 +20,6 @@ const Navbar = () => {
     const id = location.pathname.split("/")[2];
 
     const product = useSelector((state) => state.product.products);
-    const [quantity, setQuantity] = useState(1);
 
 
    const [isScrolled, setIsScrolled] = useState(false);
@@ -86,17 +85,10 @@ const Navbar = () => {
     }, [dispatch, id]);
 
 
-    const handleQty = (type) => {
-        if (type === "dec") {
-            quantity > 1 && setQuantity(quantity-1)
-        } else {
-            setQuantity(quantity+1)
-        }
-    }
 
     const handleCart = () => {
         console.log(product)
-        dispatch(addProduct({...product, quantity}))
+        dispatch(addProduct({...product, quantity: 1}))
     }
 
 
