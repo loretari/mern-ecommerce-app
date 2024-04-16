@@ -15,6 +15,8 @@ const Product = ({ item }) => {
             _id: item._id,
             title: item.title,
             price: item.price,
+            description: item.description,
+            image: item.image,
             quantity: 1
         };
         console.log(item)
