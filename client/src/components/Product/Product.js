@@ -13,7 +13,7 @@ const Product = ({ item }) => {
 
     const handleCart = () => {
         console.log(product)
-        dispatch(addProduct({...product, quantity: 1}))
+        // dispatch(addProduct({...product, quantity: 1}))
         dispatch(addProduct(item));
 
     }
