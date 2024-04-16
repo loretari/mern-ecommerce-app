@@ -4,6 +4,7 @@ import {Link, useNavigate, useLocation} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import {logout} from "../../redux/userSlice";
 import { FaSearch } from "react-icons/fa";
+import axios from "axios";
 
 
 const Navbar = () => {
@@ -19,8 +20,11 @@ const Navbar = () => {
 
    const navigate = useNavigate();
 
-    const [searchItem, setSearchItem] = useState('');
-    const location = useLocation();
+    const [searchItem, setSearchItem] = useState([]);
+    const [key, setKey] = useState('')
+    // const location = useLocation();
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,25 +39,46 @@ const Navbar = () => {
         };
     }, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (searchItem.trim() !== ''){
-            const urlParams = new URLSearchParams();
-            urlParams.set('searchItem', searchItem);
-            navigate(`products/search?${urlParams.toString()}`);
-        } else {
-            console.log('Search could not be empty')
-        }
-    };
-
 
     useEffect(() => {
-        const urlParams = new URLSearchParams(location.search);
-        const searchItemFromUrl = urlParams.get('searchItem');
-        if (searchItemFromUrl) {
-            setSearchItem(searchItemFromUrl);
+        const search = async () => {
+            try {
+         if (!key.trim()) {
+           setSearchItem([])
+          return
+          } const res = await axios.get("https://mern-ecommerce-app-clqa.onrender.com/products/", {params: {key: key, limit: 5}})
+          setSearchItem(res.data.data)
+           console.log(res)
+            } catch (error) {
+                console.log(error)
+            }
         }
-    }, [location.search]);
+        search()
+    }, [key])
+
+
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (searchItem.trim() !== ''){
+    //         const urlParams = new URLSearchParams();
+    //         urlParams.set('searchItem', searchItem);
+    //         navigate(`products/search?${urlParams.toString()}`);
+    //     } else {
+    //         console.log('Search could not be empty')
+    //     }
+    // };
+
+
+
+
+    // useEffect(() => {
+    //     const urlParams = new URLSearchParams(location.search);
+    //     const searchItemFromUrl = urlParams.get('searchItem');
+    //     if (searchItemFromUrl) {
+    //         setSearchItem(searchItemFromUrl);
+    //     }
+    // }, [location.search]);
 
 
     const handleLogout = (e) => {
@@ -74,16 +99,29 @@ const Navbar = () => {
                 </div>
 
                 <form className= "navbar-search"
-                      onSubmit ={handleSubmit }
+                      // onSubmit ={handleSubmit }
                 >
                     <input
                         type='text'
                         placeholder='Search...'
-                        value={searchItem}
-                        onChange={(e) => setSearchItem(e.target.value)}
+                        value={key}
+                        onChange={(e) => setKey(e.target.value)}
                     />
                         <FaSearch className='navbar-searchButton'/>
-
+                    {searchItem && searchItem.length > 0 && (
+                        <div>
+                            {searchItem.map(product => (
+                                <div key={product._id}>
+                                    <div>
+                                        <img src={product.image} />
+                                    </div>
+                                    <div>
+                                        <p>{product.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </form>
                 <div >
                     {currentUser ? (
