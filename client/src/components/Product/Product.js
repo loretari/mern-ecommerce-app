@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import "./product.css";
 import {Link, useLocation} from "react-router-dom";
 import {addProduct} from "../../redux/cartSlice";
