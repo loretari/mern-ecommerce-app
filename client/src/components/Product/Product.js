@@ -12,7 +12,6 @@ const Product = ({ item }) => {
     const id = location.pathname.split("/")[2];
 
     const product = useSelector((state) => state.product.products);
-    const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
 
 
@@ -38,7 +37,7 @@ const Product = ({ item }) => {
 
     const handleCart = () => {
         console.log(product)
-        dispatch(addProduct({...product, quantity}))
+        dispatch(addProduct({...product, quantity: 1}))
     }
 
 
