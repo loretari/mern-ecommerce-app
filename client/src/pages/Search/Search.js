@@ -32,6 +32,7 @@ useEffect(() => {
             const searchQuery = new URLSearchParams({ category: categoryData }).toString();
             try {
                 const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products/search?${searchQuery}`);
+               console.log(res.data)
                 if (res.status === 200) {
                     setProducts(res.data)
                 }

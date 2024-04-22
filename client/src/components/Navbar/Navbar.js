@@ -100,7 +100,7 @@ const Navbar = () => {
         if (searchTermFromUrl) {
             setSearchTerm(searchTermFromUrl);
         }
-    
+
     }, [location.search, searchTerm]);
 
     //
