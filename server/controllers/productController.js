@@ -110,12 +110,24 @@ productController.get('user/find/:id', verifyToken, async  (req, res) => {
    })
 
 
-productController.get('/search', async (req, res) => {
-    const query = req.query.query;
+productController.post('/search', async (req, res) => {
+    const { type, query} = req.body;
 
     try {
+        let products;
 
-        const products = await Product.find({ title: { $regex: `^${query}`, $options:'i'} });
+        switch (type) {
+            case 'text':
+                products = await Product.find({ $text: { $search: query }});
+                break;
+            case 'category':
+                products = await Product.find({ categories: query});
+                break;
+        }
+
+        if (!products.length > 0) {
+            products = await Product.find({});
+        }
         return res.status(200).json(products);
 
 

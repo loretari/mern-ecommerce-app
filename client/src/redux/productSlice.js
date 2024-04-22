@@ -83,7 +83,7 @@ export const productSlice = createSlice({
         // sort products
         sortProducts: (state, action) => {
             state.sortBy = action.payload;
-        }
+        },
     },
 });
 

@@ -11,6 +11,7 @@ import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
 
+    const [text, setText] = useState('');
     const { currentUser } = useSelector((state) => state.user);
     const  cartQuantity  = useSelector((state) => state.cart.quantity);
 
@@ -102,10 +103,9 @@ const Navbar = () => {
     }, [location.search]);
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-            const urlParams = new URLSearchParams(location.search);
+    const handleSearch = (e) => {
+       setText(e.target.value);
+       const urlParams = new URLSearchParams(location.search);
             urlParams.set('searchTerm', searchTerm);
             const searchQuery = urlParams.toString();
             navigate(`/search?${searchQuery}`);
@@ -140,16 +140,17 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <form className= "navbar-search"
-                      onSubmit = {handleSubmit}
-                >
+                <form className= "navbar-search">
                     <input
-                        type='text'
+                        type='search'
                         placeholder='Search...'
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        name= 'search'
+                        value={text}
+                        onChange={handleSearch}
                     />
-                    <button className='navbar-searchButton'>
+                    <button
+                    type= 'submit'
+                        className='navbar-searchButton'>
                         <FaSearch />
                     </button>
                 </form>

@@ -6,25 +6,28 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
 import NewsLetter from "../../components/Newsletter/Newsletter";
 import Product from "../Product/Product";
 import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {updateProductSuccess} from "../../redux/productSlice";
 
 
 
 const Search = () => {
-    const [items, setItems] = useState([]);
+
+    const {  products} = useSelector(state => state.products);
 
     const location = useLocation();
     const category = location.pathname.split('/')[2];
 
     const [categoryData, setCategoryData] = useState("Clothing");
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchItems = async () => {
             const urlParams = new URLSearchParams(location.search);
-            const categoryFromUrl = urlParams.get('category');
-            if (categoryFromUrl) {
+            const categoryFromUrl = urlParams.get('category') || categoryData;
                 setCategoryData(categoryFromUrl);
-            }
+
 
             const searchQuery = urlParams.toString();
             try {
@@ -33,27 +36,16 @@ const Search = () => {
 
                 if (res.status === 200) {
                     console.log("Items fetching:", res.data.items)
-                    const data = res.data;
-                    console.log("Response Data:", data);
-
-                    if (Array.isArray(data) && data.length > 0) {
-                        setItems(data);
-                    } else {
-                        setItems([]);
-                    }
-
-                } else {
-                    setItems([]);
+                    dispatch(updateProductSuccess(res.data))
                 }
-
             } catch (error) {
                 console.error("Error fetching items:", error);
-                setItems([])
+                dispatch(updateProductSuccess([]));
             }
         }
 
 fetchItems();
-    }, [location.search]);
+    }, [dispatch, location.search, categoryData]);
 
     const handelSubmit = async (e) => {
         e.preventDefault();
@@ -94,12 +86,12 @@ fetchItems();
 
             </div>
             <div>
-                {items.length === 0 ? (
-                    <p className= "search-found">No items found...</p>
-                ) : (
-                   items.map((item) => <Product item={item} key = {item._id} />)
+                {products.length === 0 ? (
+                        <p className="search-found">No items found...</p>
+                ) : (  products.map(product => (
+                            <Product product={product} key = {product._id}/>
+                    ))
                 )}
-
             </div>
             <NewsLetter />
             <Footer/>
