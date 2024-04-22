@@ -6,21 +6,21 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
 import NewsLetter from "../../components/Newsletter/Newsletter";
 import Product from "../Product/Product";
 import axios from "axios";
-import {useDispatch, useSelector} from "react-redux";
-import {updateProductSuccess} from "../../redux/productSlice";
+
+
 
 
 
 const Search = () => {
 
-    const {  products} = useSelector(state => state.products);
+    const [products, setProducts] = useState([]);
 
     const location = useLocation();
     const category = location.pathname.split('/')[2];
 
     const [categoryData, setCategoryData] = useState("Clothing");
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -35,12 +35,13 @@ const Search = () => {
                 console.log("Server response:", res);
 
                 if (res.status === 200) {
-                    console.log("Items fetching:", res.data.items)
-                    dispatch(updateProductSuccess(res.data))
+                    console.log("Items fetching:", res.data.products)
+                    const data = res.data;
+                    setProducts(data)
                 }
             } catch (error) {
                 console.error("Error fetching items:", error);
-                dispatch(updateProductSuccess([]));
+               setProducts([])
             }
         }
 
