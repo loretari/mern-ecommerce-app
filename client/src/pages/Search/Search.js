@@ -30,6 +30,7 @@ const Search = () => {
             try {
                 const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products?${searchQuery}`);
                 if (res.status === 200) {
+                    console.log("Items fetching:", res.data.items)
                     const data = res.data;
                     setItems(data.items || []);
                 }
@@ -43,7 +44,8 @@ const Search = () => {
 fetchItems();
     }, [location.search]);
 
-    const handelSubmit = async () => {
+    const handelSubmit = async (e) => {
+        e.preventDefault();
         const urlParams = new URLSearchParams(location.search);
         urlParams.set('category', categoryData);
         const searchQuery = urlParams.toString();
@@ -84,7 +86,7 @@ fetchItems();
                 {items.length === 0 ? (
                     <p className= "search-found">No items found...</p>
                 ) : (
-                   items.map((item) => <Product item={item} key = {item.id} />)
+                   items.map((item) => <Product item={item} key = {item._id} />)
                 )}
 
             </div>
