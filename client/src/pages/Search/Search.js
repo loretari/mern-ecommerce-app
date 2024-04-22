@@ -21,38 +21,32 @@ const Search = () => {
     const [categoryData, setCategoryData] = useState("Clothing");
     const navigate = useNavigate();
 
+useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const categoryFromUrl = urlParams.get('category') || categoryData;
+    setCategoryData(categoryFromUrl);
+}, [location.search, categoryData])
 
     useEffect(() => {
         const fetchItems = async () => {
-            const urlParams = new URLSearchParams(location.search);
-            const categoryFromUrl = urlParams.get('category') || categoryData;
-                setCategoryData(categoryFromUrl);
-
-
-            const searchQuery = urlParams.toString();
+            const searchQuery = new URLSearchParams({ category: categoryData }).toString();
             try {
                 const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products/search?${searchQuery}`);
-                console.log("Server response:", res);
-
                 if (res.status === 200) {
-                    console.log("Items fetching:", res.data.products)
-                    const data = res.data;
-                    setProducts(data)
+                    setProducts(res.data)
                 }
             } catch (error) {
                 console.error("Error fetching items:", error);
-               setProducts([])
+               setProducts([]);
             }
         }
 
 fetchItems();
-    }, [location.search, categoryData]);
+    }, [categoryData]);
 
-    const handelSubmit = async (e) => {
+    const handelSubmit = (e) => {
         e.preventDefault();
-        const urlParams = new URLSearchParams(location.search);
-        urlParams.set('category', categoryData);
-        const searchQuery = urlParams.toString();
+        const searchQuery = new URLSearchParams({category: categoryData}).toString();
         navigate(`/search?${searchQuery}`);
 
     }

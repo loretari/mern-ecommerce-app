@@ -104,10 +104,8 @@ const Navbar = () => {
 
 
     const handleSearch = (e) => {
-       setText(e.target.value);
-       const urlParams = new URLSearchParams(location.search);
-            urlParams.set('searchTerm', searchTerm);
-            const searchQuery = urlParams.toString();
+     e.preventDefault();
+       const searchQuery = new URLSearchParams({ searchTerm: text }).toString();
             navigate(`/search?${searchQuery}`);
 
     };
@@ -145,11 +143,9 @@ const Navbar = () => {
                         type='text'
                         placeholder='Search...'
                         value={text}
-                        onChange={handleSearch}
+                        onChange={(e) => setText(e.target.value)}
                     />
-                    <button
-                    type= 'submit'
-                        className='navbar-searchButton'>
+                    <button className='navbar-searchButton'>
                         <FaSearch />
                     </button>
                 </form>
