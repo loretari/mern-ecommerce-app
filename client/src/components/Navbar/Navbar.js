@@ -4,8 +4,8 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import {logout} from "../../redux/userSlice";
 import { FaSearch } from "react-icons/fa";
-import axios from "axios";
-import {getProductSuccess} from "../../redux/productSlice";
+// import axios from "axios";
+// import {getProductSuccess} from "../../redux/productSlice";
 // import {addProduct} from "../../redux/cartSlice";
 
 
@@ -17,7 +17,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     const location = useLocation();
-    const id = location.pathname.split("/")[2];
+    // const id = location.pathname.split("/")[2];
 
     // const product = useSelector((state) => state.product.products);
 
