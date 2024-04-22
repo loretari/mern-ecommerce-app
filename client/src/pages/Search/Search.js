@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import {Link, useLocation, useNavigate} from "react-router-dom";
-import KeyboardBackspaceOutlinedIcon from "@mui/material/SvgIcon/SvgIcon";
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 import NewsLetter from "../../components/Newsletter/Newsletter";
 import Product from "../Product/Product";
 import axios from "axios";
@@ -22,31 +22,33 @@ const Search = () => {
         const urlParams = new URLSearchParams(location.search);
         const categoryFromUrl = urlParams.get('category');
         if (categoryFromUrl) {
-            setCategoryData({
-                ...categoryData,
-                category: categoryFromUrl,
-            });
+            setCategoryData(categoryFromUrl);
         }
 
         const searchItems = async () => {
             const searchQuery = urlParams.toString();
-            const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products?${searchQuery}`);
-            if (!res.ok) {
-                return
+            try {
+                const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products?${searchQuery}`);
+                if (res.status === 200) {
+                    const data = res.data;
+                    setItems(data.items);
+                }
+                if (res.ok) {
+                    const data = await res.json();
+                    setItems(data.items);
+                }
+            } catch (error) {
+                console.error("Error fetching items:", error);
             }
-            if (res.ok) {
-                const data = await res.json();
-                setItems(data.items);
 
-            }
 
         }
 searchItems();
-    }, [location.search]);
+    }, [location.search, categoryData]);
 
     const handelSubmit = async () => {
         const urlParams = new URLSearchParams(location.search);
-        urlParams.set('categoryData', categoryData);
+        urlParams.set('category', categoryData);
         const searchQuery = urlParams.toString();
         navigate(`/search?${searchQuery}`);
 
