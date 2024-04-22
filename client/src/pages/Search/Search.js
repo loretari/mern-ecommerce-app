@@ -28,7 +28,7 @@ const Search = () => {
 
             const searchQuery = urlParams.toString();
             try {
-                const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products?${searchQuery}`);
+                const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products/search?${searchQuery}`);
                 console.log("Server response:", res);
 
                 if (res.status === 200) {
