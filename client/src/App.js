@@ -25,7 +25,7 @@ import AdminItems from "./admin/adminItems/AdminItems";
 import AdminItem from "./admin/adminItem/AdminItem";
 import NewItem from "./admin/newItem/NewItem";
 import CookieConsent from "./cookieConsent/CookieConsent";
-import Search from "./pages/Search";
+import Search from "./pages/Search/Search";
 
 
 

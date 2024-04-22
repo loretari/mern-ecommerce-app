@@ -1,0 +1,34 @@
+.shop-title {
+    margin: 20px;
+    justify-content:center;
+    align-items:center;
+}
+
+.search-found {
+    font-size: 24px;
+    font-weight: 300;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    color: gray;
+}
+
+.shop-filterContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-filter {
+    margin: 20px;
+}
+
+.shop-filterText {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.shop-select {
+    padding: 10px;
+    margin-right: 20px;
+}
