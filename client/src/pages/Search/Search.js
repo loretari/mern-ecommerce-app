@@ -46,7 +46,7 @@ const Search = () => {
         }
 
 fetchItems();
-    }, [dispatch, location.search, categoryData]);
+    }, [location.search, categoryData]);
 
     const handelSubmit = async (e) => {
         e.preventDefault();
