@@ -100,15 +100,16 @@ const Navbar = () => {
         if (searchTermFromUrl) {
             setSearchTerm(searchTermFromUrl);
         }
+        console.log(searchTerm)
     }, [location.search]);
 
-
-    const handleSearch = (e) => {
-     e.preventDefault();
-       const searchQuery = new URLSearchParams({ searchTerm: text }).toString();
-            navigate(`/search?${searchQuery}`);
-
-    };
+    //
+    // const handleSearch = (e) => {
+    //  e.preventDefault();
+    //    const searchQuery = new URLSearchParams({ searchTerm: text }).toString();
+    //         navigate(`/search?${searchQuery}`);
+    //
+    // };
 
     // const handleSubmit = (e) => {
     //     e.preventDefault();
