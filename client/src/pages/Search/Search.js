@@ -29,10 +29,21 @@ const Search = () => {
             const searchQuery = urlParams.toString();
             try {
                 const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products?${searchQuery}`);
+                console.log("Server response:", response);
+
                 if (res.status === 200) {
                     console.log("Items fetching:", res.data.items)
                     const data = res.data;
-                    setItems(data.items || []);
+                    console.log("Response Data:", data);
+
+                    if (Array.isArray(data) && data.length > 0) {
+                        setItems(data);
+                    } else {
+                        setItems([]);
+                    }
+
+                } else {
+                    setItems([]);
                 }
 
             } catch (error) {
