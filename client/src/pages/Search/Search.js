@@ -19,32 +19,29 @@ const Search = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const urlParams = new URLSearchParams(location.search);
-        const categoryFromUrl = urlParams.get('category');
-        if (categoryFromUrl) {
-            setCategoryData(categoryFromUrl);
-        }
+        const fetchItems = async () => {
+            const urlParams = new URLSearchParams(location.search);
+            const categoryFromUrl = urlParams.get('category');
+            if (categoryFromUrl) {
+                setCategoryData(categoryFromUrl);
+            }
 
-        const searchItems = async () => {
             const searchQuery = urlParams.toString();
             try {
                 const res = await axios.get(`https://mern-ecommerce-app-clqa.onrender.com/products?${searchQuery}`);
                 if (res.status === 200) {
                     const data = res.data;
-                    setItems(data.items);
+                    setItems(data.items || []);
                 }
-                if (res.ok) {
-                    const data = await res.json();
-                    setItems(data.items);
-                }
+
             } catch (error) {
                 console.error("Error fetching items:", error);
+                setItems([])
             }
-
-
         }
-searchItems();
-    }, [location.search, categoryData]);
+
+fetchItems();
+    }, [location.search]);
 
     const handelSubmit = async () => {
         const urlParams = new URLSearchParams(location.search);
@@ -84,10 +81,12 @@ searchItems();
 
             </div>
             <div>
-                {items.length === 0 && (
+                {items.length === 0 ? (
                     <p className= "search-found">No items found...</p>
+                ) : (
+                   items.map((item) => <Product item={item} key = {item.id} />)
                 )}
-                {items && items.map((item) => <Product item={item} key = {item.id} />)}
+
             </div>
             <NewsLetter />
             <Footer/>
