@@ -101,7 +101,7 @@ const Navbar = () => {
             setSearchTerm(searchTermFromUrl);
         }
         console.log(searchTerm)
-    }, [location.search]);
+    }, [location.search, searchTerm]);
 
     //
     // const handleSearch = (e) => {
