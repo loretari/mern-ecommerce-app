@@ -25,6 +25,7 @@ import AdminItems from "./admin/adminItems/AdminItems";
 import AdminItem from "./admin/adminItem/AdminItem";
 import NewItem from "./admin/newItem/NewItem";
 import CookieConsent from "./cookieConsent/CookieConsent";
+import Search from "./pages/Search";
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route index path= "/" element= {<Homepage/>}/>
             <Route path= "/products/:category" element={<ProductList />} />
             <Route path= "/product/:id" element={<Product />} />
+            <Route path= "/search" element={<Search />}/>
             <Route path= "/login" element= {<Login />}/>
             <Route path= "/register" element={<Register/>}/>
             <Route path= "/cart"  element={<Cart/>}/>
